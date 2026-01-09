@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 #' # General note  
 #' 
-#' When using this content **PLEASE CITE** our [preprint - to ADD]() and this repository [@bulla_supporting_2025], which contains all code, data and outputs used in this replication.
+#' When using this content **PLEASE CITE** our [preprint](@bulla_MA_2026) and this repository [@bulla_supporting_2026], which contains all code, data and outputs used in this replication.
 #' 
 #' Scripts generating the outputs of this html are available upon clicking the `code` button at the top right above each display item!
 #' 

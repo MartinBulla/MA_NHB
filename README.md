@@ -2,7 +2,7 @@
 
 ## Supporting information for "Data aggregation blurs inferred temporal trends in bird sampling”  
 
-When using this content **PLEASE CITE** our [preprint TO ADD]() and this repository[<sup>1</sup>](#1), which contains all code, data and outputs used in this replication. 
+When using this content **PLEASE CITE** our [preprint](https://doi.org/10.32942/X2NS9V) and this repository[<sup>1</sup>](#1), which contains all code, data and outputs used in this replication. 
 
 ### **Content**
 [Supplement with code](https://martinbulla.github.io/MA_NHB/)  

@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 #' # General note  
 #' 
-#' When using this content **PLEASE CITE** our [preprint](@bulla_MA_2026) and this repository [@bulla_supporting_2026], which contains all code, data and outputs used in this replication.
+#' When using this content **PLEASE CITE** our preprint [@bulla_MA_2026] and this repository [@bulla_supporting_2026], which contains all code, data and outputs used in this replication.
 #' 
 #' Scripts generating the outputs of this html are available upon clicking the `code` button at the top right above each display item!
 #' 
@@ -45,7 +45,7 @@ knitr::opts_chunk$set(
 #' [R](https://github.com/MartinBulla/MA_NHB/tree/main/R/) - scripts used in the analysis:  
 #' - [_runRmarkdown.R](https://github.com/MartinBulla/MA_NHB/tree/main/R/_runRmarkdown.R) generates the html [Supplement](https://martinbulla.github.io/MA_NHB/) from the following R-script:  
 #' - [rep_SI_v5.R](https://github.com/MartinBulla/MA_NHB/tree/main/R/rep_SI_v5.R) contains all scripts used to generate the paper outputs, including the display items  
-#' - [rev_Dat_temporal_trend_v2.R](https://github.com/MartinBulla/MA_NHB/tree/main/R/rev_Dat_temporal_trend_v2.R) is an adjusted author's script that saves the # of sampling observations per each polygon and year  
+#' - [rev_Dat_temporal_trend_v1.R](https://github.com/MartinBulla/MA_NHB/tree/main/R/rev_Dat_temporal_trend_v1.R) is an adjusted author's script that saves the # of sampling observations per each polygon and year  
 #' 
 #' [Outputs](https://github.com/MartinBulla/MA_NHB/tree/main/Output/) - separate files of all outputs used in our manuscript, the html supporting infomration file  as well as [Model_ass](https://github.com/MartinBulla/MA_NHB/tree/main/Output/Model_ass) folder with model assumptions of all models that we fitted. 
 #'
@@ -1550,10 +1550,10 @@ tab_model(d_fe_rirs, transform = 'exp')
 #'  
 #' ***
 #' 
-#' We initially could not fully reproduce (i) Table 1 because the best model was indicated to be shown, but the model behind the plot was not the best one according to AIC-selection found in the script, and (ii) Table S4 because the model description did not match the script and the underlying data were accidentally multiplied (our Table [S3](#T_S3), see ‘d’ for output matching authors’ Table S4). (iii) The latter obscured the reproducibility also of Fig. 4 (see next). 
+#' We initially could not fully reproduce (i) Table 1 because the best model was indicated to be shown, but the model behind the plot was not the best one according to AIC-selection found in the script, and (ii) Table S4 because the model description did not match the script and the underlying data were accidentally multiplied (our Table [S3](#T_S3a), see ‘d’ for output matching authors’ Table S4). (iii) The latter obscured the reproducibility also of Fig. 4 (see next). 
 #' 
 #' ## Coding error
-#' The major coding error that we found in the authors' script preparing temporal trend data (`04_R4_uneven_biodiversity_data_2023.R`, section *[7] Plot temporal trends 1933-2022 and 2000-2020*) unintentionally multiplied the dataset (our Fig. [S1](#F_S1)). Hence, Fig. 4 and Table S4, and thus likely the 35.6% claim, did not depict the actual data (see our Fig. [S2](#F_S2) and Table [S3](#T_S3)). 
+#' The major coding error that we found in the authors' script preparing temporal trend data (`04_R4_uneven_biodiversity_data_2023.R`, section *[7] Plot temporal trends 1933-2022 and 2000-2020*) unintentionally multiplied the dataset (our Fig. [S1](#F_S1)). Hence, Fig. 4 and Table S4, and thus likely the 35.6% claim, did not depict the actual data (see our Fig. [S2](#F_S2) and Table [S3](#T_S3a)). 
 #' 
 #' Initially, we struggled to reproduce Fig. 4. The output that resembles Fig. 4 is located in two scripts, each yielding different results. 
 #'
@@ -1864,7 +1864,7 @@ ggplot(plotdat[year >= 2000 & year <= 2020], aes(sampling_density.x, sampling_de
 #'   
 #' These figures highlight the effects discussed by the authors. The figures show that 2020 might be an off year (e.g. due to COVID-19-restrictions driven increase in human presence in urban parks), an increase around 2010 (e.g. due to introduction of smarthpones)and that disparity remained (did not increase much after). However, these results depend on the aggregation metric (our Fig. [4](#F_4)) and same as the author's intended Fig. 4, the aggregations do not account for spatial and temporal non-independence of data points and/or confounding factors. 
 #' 
-#' We also struggled with generating the results found in the authors' Table S4. The authors' scripts contained models where sampling density was not log-transformed, whereas the description of the authors' Table S4 indicated log-transformation (throughout log refers to ln). Using log-transformed sampling density and multiplied dataset did produce the outcome found in authors' Table S4 (see below Table [S3](T_S3)). It is however unclear why the generalised additive model was used as no wave form was fitted (i.e. simple Gaussian model was used). 
+#' We also struggled with generating the results found in the authors' Table S4. The authors' scripts contained models where sampling density was not log-transformed, whereas the description of the authors' Table S4 indicated log-transformation (throughout log refers to ln). Using log-transformed sampling density and multiplied dataset did produce the outcome found in authors' Table S4 (see below Table [S3](T_S3a)). It is however unclear why the generalised additive model was used as no wave form was fitted (i.e. simple Gaussian model was used). 
 #' 
 #' <br>
 #'    
@@ -1964,7 +1964,7 @@ tab_model(gam_density_mul_ln, gam_density_ok_ln, auto.label = T, string.ci='95%C
 #' 
 #' <br>
 #' 
-#' Note, models with sampling density ln-transformed fit the data better (see [Model assumptions](#Model assumptions)). 
+#' Note, models with sampling density ln-transformed fit the data better (see [Model assumptions](#Model_ass)). 
 #' 
 #' <br>
 #' 
@@ -2425,6 +2425,7 @@ tab_model(gam_density_mul_ln, gam_density_ok_ln, auto.label = T, string.ci='95%C
   # combine
   (A1 / A2) + plot_layout(axis_titles = "collect")#; ggsave('Output/Fig_S4.jpg', width = 25, height = 8, units = 'cm') 
 
+#' <a name="F_S4">
 #' **Figure S4</a> | Differences in estimated sampling presence between HOLC grades across modelling approaches.** Points represent fixed-effect contrasts for HOLC grades B-D (columns), relative to HOLC grade A, in the probability that a HOLC polygon was ever sampled (binary "sampled or not" outcome). Horizontal lines are 95% Wald confidence intervals, and the vertical dashed line indicates zero difference. Red open circles indicate models specified by the original authors; blue filled circles those specified by us. The y-axis lists model structure: terms outside parentheses are fixed effects (`*` denotes interactions), terms inside parentheses denote random effects (variables left of `|` are random slopes, variables right of `|` are random intercepts). The **top row** shows binomial logit-link models of sampling presence, the **bottom row** Gaussian identity-link models fitted to the same binary outcome on the original 0–1 scale. All models are based on n = `r nrow(h)` HOLC polygons (neighbourhoods).
 #'
 #' ***
@@ -3020,6 +3021,7 @@ tab_model(gam_density_mul_ln, gam_density_ok_ln, auto.label = T, string.ci='95%C
 
     (B1 / B2 / B3) + plot_layout(axis_titles = "collect") #ggsave('Output/Fig_S5.jpg', width = 25, height = 12, units = 'cm') 
 
+#' <a name="F_S5">
 #' **Figure S5</a> | Differences in estimated sampling density between HOLC grades across modelling approaches.** Points represent fixed-effect contrasts for HOLC grades B-D (columns), relative to HOLC grade A, in sampling density of bird observations (per km²), while horizontal lines are 95% Wald confidence intervals, expressed on the model’s link scale. The **top row** shows Gaussian identity-link models fitted to log-transformed sampling density using only polygons with non-zero sampling density; the **middle row** shows Gaussian identity-link models fitted to all polygons (including zeros) by adding a small data-derived constant (0.125) to the `sampling density` to allow log transformation (`log(sampling density + 0.125)`); the **bottom row** shows negative-binomial log-link models of bird observation counts with an `log(area (km²))` offset, modelling counts per unit area and thus representing differences in sampling density. Sample sizes for each row are given in the subtitles. The vertical dashed line indicates zero difference. Red open circles indicate models specified by the original authors; blue filled circles those specified by us. The y-axis lists model structure: terms outside parentheses are fixed effects (`*` denotes interactions), terms inside parentheses denote random effects (variables left of `|` are random slopes, variables right of `|` are random intercepts).  
 #'
 #' The original authors modelled log(sampling density) using Gaussian models, either excluding zeros or adding a small constant. Our modelling of both these variants reproduced the qualitative pattern of reduced sampling in lower HOLC grades, yet the absolute differences were sensitive to data transformation and model structure (Fig. [S5](#F_S5)). When re-analysed as count data with an offset for polygon area and a negative-binomial family, the direction of effects remained consistent, but estimates became slightly less extreme and more stable across model specifications. This stability reflects that the count-offset formulation properly accounts for unequal polygon areas, includes zeros without arbitrary transformation, and models overdispersion explicitly rather than absorbing it into residual variance.
@@ -3216,6 +3218,7 @@ theme(
     #plot.subtitle = element_text(size = 7, colour = "grey40", margin = margin(b=-25))
     )#; ggsave('Output/Fig_S6.jpg', width = 25, height = 5, units = 'cm')
 
+#' <a name="F_S6">
 #' **Figure S6</a> | Differences in estimated sampling completeness between HOLC grades across modelling approaches.** Points represent fixed-effect contrasts for HOLC grades B-D (columns), relative to HOLC grade A, in completeness of sampling (index), while horizontal lines are 95% confidence intervals. The vertical dashed line indicates zero difference. Red open circles indicate models specified by the original authors; blue filled circles those specified by us. The y-axis lists model structure: terms outside parentheses are fixed effects (`*` denotes interactions), terms inside parentheses denote random effects (variables left of `|` are random slopes, variables right of `|` are random intercepts). All models are based on n = `r nrow(hC)` HOLC polygons (neighbourhoods).
 #' 
 #' ***
@@ -3879,7 +3882,7 @@ bottom = (ex_A | ex_mix | ex_D) + plot_layout(axis_titles = "collect_x")
 top / bottom
 
 #' <a name="F_E2">
-#' **Extended Data Figure 2</a> | City-level variation in sampling density and HOLC-grade skew.** **Top row**, number of cities classified as A-skewed, D-skewed, mixed, or unclassified based on arithmetic-mean (left) or geometric-mean (middle) sampling density ratios between HOLC A and D polygons. Comparison of city-level A/D ratios from geometric vs arithmetic means (right); points above the 1:1 line indicate cities where arithmetic means underestimate relative sampling advantage of A over D (A-skewed classification; typically due to strong D-grade hotspots raising the arithmetic mean for D), while points below the line indicate cities where arithmetic means overestimate A-skew (typically due to strong A-grade hotspots raising the arithmetic mean for A). Arithmetic means are highly sensitive to rare but extreme polygons (“hotspots”), and therefore reflect occasional seasonal survey bursts (e.g.  localised campaigns such as Christmas Bird Count) rather than the persistent, long-term differences in sampling between HOLC grades. Geometric means minimise outliers and capture the “typical” polygon in the “typical” year. The wide scatter around the 1:1 line shows that no single aggregation metric yields a stable across-metric classification, because hotspot influence differs strongly between metrics, thus cities frequently flip between A-skewed, mixed, and D-skewed depending on whether hotspots are emphasised (arithmetic) or down-weighted (geometric). **Bottom row**, representative example cities: A-skewed city (left), where A-grade polygons are consistently sampled more densely than D-grade polygons, mixed city (middle) with no persistent ordering between A and D grades across years, and D-skewed city (right), where D-grade polygons receive higher sampling density. Panels show raw polygon-level sampling densities (points) with LOESS trends per HOLC grade (solid lines). Cities were selected using a data-driven procedure based on the geometric mean A/D ratio (see Methods). These examples illustrate that within-city patterns vary substantially and help interpret the aggregate national-level A/D disparity trends shown in Fig. [1](#F_1)). The plots for each city are in our Extended Data Fig. [1](#F_E1). 
+#' **Extended Data Figure 2</a> | City-level variation in sampling density and HOLC-grade skew.** **Top row**, number of cities classified as A-skewed, D-skewed, mixed, or unclassified based on arithmetic-mean (left) or geometric-mean (middle) sampling density ratios between HOLC A and D polygons. Comparison of city-level A/D ratios from geometric vs arithmetic means (right); points above the 1:1 line indicate cities where arithmetic means underestimate relative sampling advantage of A over D (A-skewed classification; typically due to strong D-grade hotspots raising the arithmetic mean for D), while points below the line indicate cities where arithmetic means overestimate A-skew (typically due to strong A-grade hotspots raising the arithmetic mean for A). Arithmetic means are highly sensitive to rare but extreme polygons (“hotspots”), and therefore reflect occasional seasonal survey bursts (e.g.  localised campaigns such as Christmas Bird Count) rather than the persistent, long-term differences in sampling between HOLC grades. Geometric means minimise outliers and capture the “typical” polygon in the “typical” year. The wide scatter around the 1:1 line shows that no single aggregation metric yields a stable across-metric classification, because hotspot influence differs strongly between metrics, thus cities frequently flip between A-skewed, mixed, and D-skewed depending on whether hotspots are emphasised (arithmetic) or down-weighted (geometric). **Bottom row**, representative example cities: A-skewed city (left), where A-grade polygons are consistently sampled more densely than D-grade polygons, mixed city (middle) with no persistent ordering between A and D grades across years, and D-skewed city (right), where D-grade polygons receive higher sampling density. Panels show raw polygon-level sampling densities (points) with LOESS trends per HOLC grade (solid lines). Cities were selected using a data-driven procedure based on the geometric mean A/D ratio (see description above). These examples illustrate that within-city patterns vary substantially and help interpret the aggregate national-level A/D disparity trends shown in Fig. [1](#F_1)). The plots for each city are in our Extended Data Fig. [1](#F_E1). 
 #'
 #' ***
 #' 
@@ -5372,7 +5375,7 @@ both; #ggsave('Output/Fig_2_v2.png', both, width = 10, height = 9*2, units = 'cm
 #'  
 #' ***
 #' 
-#' # Model assumptions
+#' # Model assumptions {#Model_ass}
 
 #' The model formula consists of the model type (lm - linear model, glm - generalised linear model, lmer - linear mixed-effect model, glmer - generalised linear mixed-effect model, glmmTMB – generalised linear mixed‐effects model fitted via Template Model Builder, gam - generalised additive model, glm.nb – negative binomial generalised linear model, bam – generalised additive model for large dataset), the response (left of ~), predictors (right of ~) with predictors in paranthesis indicating random effects, the predictors without paranthesis fixed effects. Random effects left of '|' are random slopes, right of '|' are random intercepts. Explicitly nested random intercepts are separated by '/'. 'scale' indicates z-transformation whereas log (in R) means natural logarithm.
 #' 

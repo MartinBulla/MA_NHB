@@ -2,7 +2,7 @@
 
 ## Supporting information for "Data aggregation blurs inferred temporal trends in bird sampling”  
 
-This Supporting Information accompanies our *Matters Arising* and provides detailed methods, results, diagnostics, and figure outputs underlying the analyses reported in the main text [@bulla_MA_2026]. 
+This Supporting Information accompanies our *Matters Arising* and provides detailed methods, results, diagnostics, and figure outputs underlying the analyses reported in the [main text](https://doi.org/10.32942/X2NS9V). 
 
 When referring to or reusing these materials, **please cite** the corresponding [preprint](https://doi.org/10.32942/X2NS9V) and this repository [<sup>1</sup>](#1), which contains all code, data, and outputs used in this replication.
 

@@ -1,4 +1,4 @@
-
+[![DOI](https://zenodo.org/badge/490718600.svg)](https://zenodo.org/doi/10.5281/zenodo.18394854)
 
 ## Supporting information for "Data aggregation blurs inferred temporal trends in bird sampling”  
 
@@ -26,4 +26,7 @@ When referring to or reusing these materials, **please cite** the corresponding 
 
 ***
 
-<a name="1"></a>(1) Martin Bulla & Peter Mikula (2026). *Supporting information for 'Data aggregation blurs inferred temporal trends in bird sampling'*, GitHub, [https://martinbulla.github.io/MA_NHB/](https://martinbulla.github.io/MA_NHB/)
+<a name="1"></a>(1) Martin Bulla & Peter Mikula (2026). *Supporting information for 'Data aggregation blurs inferred temporal trends in bird sampling'*, GitHub, [https://martinbulla.github.io/MA_NHB/](https://martinbulla.github.io/MA_NHB/); [![DOI](https://zenodo.org/badge/490718600.svg)](https://zenodo.org/doi/10.5281/zenodo.18394854)
+
+
+

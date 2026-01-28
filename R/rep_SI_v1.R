@@ -1493,7 +1493,7 @@ dispar2 = round((((dd[year%in%c(2020) &  holc_grade%in%c('A'), sampling_density]
 #' # Computation reproducibility
 #' ## No initial computational reproducibility
 #' We used the code and data provided by the authors [@ellis-soto_SI_2023] together with their original publication [@ellis-soto_historical_2023]. The authors' Zenodo repository contained two main components:  
-#' (1) codes to download, clean and prepare the data (hereafter *Cleaning code*; `01_gbif_biodiversity_by_HOLC_singlepolygon_2023.R`; `02_MSA_CBG_Links_equity_singlepart.Rmd`; `03_sum_area_per_city_grade.R`; and parts 1-6 of `04_R4_uneven_biodiversity_data_2023.R` [parts 1-6]), and
+#' (1) codes to download, clean and prepare the data (hereafter *Cleaning code*; `01_gbif_biodiversity_by_HOLC_singlepolygon_2023.R`; `02_MSA_CBG_Links_equity_singlepart.Rmd`; `03_sum_area_per_city_grade.R`; and parts 1-6 of `04_R4_uneven_biodiversity_data_2023.R` [parts 1-6]), and  
 #' (2) codes to generate the main results (hereafter *Analysis code*; `05_paper_1_analyses_R4.R` and parts 7-11 of `04_R4_uneven_biodiversity_data_2023.R`). 
 #' 
 #' However, the data deposited alongside the code were insufficient to execute the workflow as provided, preventing initial computational reproducibility. For a summary of provided items and computational reproducibility, see Table S0.
